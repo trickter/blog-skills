@@ -10,6 +10,8 @@ allowed-tools: Read, Bash(curl *), Bash(git *), Bash(ls *), Bash(mkdir *), Bash(
 
 Write Chinese technical blog posts in the style of a configurable local blog, starting from either daily hot trends or a user-provided topic. Always propose 5 topic options with creation advice before writing the article. After the user picks one option, write the post, publish it into the configured local blog project, then back it up to GitHub as a reference copy without cloning the backup repository.
 
+The writing bar is opinionated, engineering-first, and evidence-aware. The output should sound like an experienced engineer or technical researcher, not like a marketer or trend chaser.
+
 ## Quick Start
 
 Input can be empty, a short topic, or a longer brief.
@@ -177,11 +179,11 @@ After presenting the 5 options:
 
 Before drafting, define:
 
-- Core claim
-- Intended reader takeaway
+- One-sentence article positioning
+- Target reader
+- Core claims, at most 3
 - Evidence structure
 - Section outline
-- Title candidates
 - Opening hook strategy
 
 The title and opening must be deliberately strong:
@@ -199,21 +201,56 @@ Write a complete Chinese technical blog post.
 
 Default output structure:
 
-1. Title
-2. Opening
-3. Main body with section headings
-4. Closing section
+1. 文章定位一句话
+2. 目标读者
+3. 核心论点
+4. 文章大纲
+5. 正文初稿
+6. 自我审稿结果
+7. 精修版标题备选
+
+Default article section structure inside the draft:
+
+1. 标题
+2. 开头
+3. 背景与上下文
+4. 核心分析
+5. 我的判断
+6. 对实践者的启发
+7. 结尾
 
 Required writing behaviors:
 
-- Prioritize original synthesis over paraphrased news
+- Prioritize viewpoint, analysis, and evidence over summary
+- Keep an engineering lens: systems, reliability, risk, cost, scalability, observability, security, governance, incentives
+- Add explicit independent judgment instead of source restatement
 - If using facts or dated claims, anchor them to the research you found
 - If a claim cannot be verified, mark it as tentative rather than inventing certainty
-- Keep the tone direct, clear, and opinionated
-- Avoid filler introductions and generic inspirational language
+- State assumptions, limits, and possible failure conditions when uncertainty matters
+- If the topic is contested, present the main disagreement before your conclusion
+- Keep the tone direct, clear, professional, and restrained
+- Avoid filler introductions, AI-sounding transitions, and generic inspirational language
+- Do not write like marketing copy or a news recap
 - Write for smart readers with limited time
 
 For detailed standards, see [writing-guidelines.md](writing-guidelines.md).
+
+### Step 8.5: Self-review before publish
+
+Before publishing or backup, revise the draft against the required quality check.
+
+Minimum checks:
+
+- Is the central question explicit?
+- Is there a real viewpoint?
+- Is there a visible SRE or systems perspective?
+- Are there at least 3 concrete analytical points?
+- Are assumptions, limits, or uncertainty stated?
+- Does the draft avoid AI filler and repeated empty transitions?
+- Is the title specific, the opening strong, and the ending properly closed?
+- Would a technical reader feel there is information gain?
+
+The published version should reflect the revised draft, not the unreviewed first pass.
 
 ### Step 9: Publish to the local blog project
 
@@ -297,9 +334,13 @@ When proposing options, use this shape:
 
 When writing the article, include:
 
-- Final title
-- Optional 2 or 3 alternate title candidates if useful
-- Full article body
+- 文章定位一句话
+- 目标读者
+- 核心论点
+- 文章大纲
+- 正文初稿
+- 自我审稿结果
+- 5 个精修版标题备选
 - Backup filename
 
 ### Backup Report
@@ -326,3 +367,4 @@ After backup, report:
 - Do not turn the article into pure SEO copy
 - Do not overfit to one sample post; learn recurring patterns across recent posts
 - Prefer a config-driven fast path over runtime discovery whenever a config file exists
+- Prefer technical mechanism, tradeoffs, and boundaries over broad trend narration
