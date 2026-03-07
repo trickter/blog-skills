@@ -1,12 +1,21 @@
 # Backup Format
 
-Use this file when saving posts into the `blog-backup` repository.
+Use this file when saving posts into the `blog-backup` repository as a reference backup after local publication.
 
 ## Repository
 
 - Remote: `https://github.com/trickter/blog-backup`
 - Target directory: `posts/`
 - Target branch: `main`
+
+## Publish Order
+
+Use this order:
+
+1. Publish to the local blog project that serves `http://127.0.0.1:5000`
+2. Back up the same markdown to `blog-backup`
+
+GitHub is the backup target, not the primary publish target.
 
 ## Filename
 
@@ -54,26 +63,34 @@ After frontmatter, place the final article body in markdown.
 - Preserve images or source links if they are part of the article
 - Do not wrap the whole article in code fences
 
-## Git Backup Steps
+## GitHub Backup Steps Without Local Clone
 
-If the repository is not present locally:
+Do not clone the repository locally unless the user explicitly asks for that workflow.
 
-```bash
-git clone https://github.com/trickter/blog-backup.git
+Preferred method: GitHub Contents API.
+
+Request shape:
+
+```http
+PUT /repos/trickter/blog-backup/contents/posts/YYYY-MM-DD-slug.md
 ```
 
-Then:
+Payload should include:
 
-```bash
-git -C blog-backup add posts/YYYY-MM-DD-slug.md
-git -C blog-backup commit -m "Add post: slug"
-git -C blog-backup push origin main
-```
+- `message`: `Add post: slug` or `Update post: slug`
+- `content`: base64-encoded markdown
+- `branch`: `main`
+- `sha`: required only when updating an existing file
+
+Authentication:
+
+- Use a GitHub token or another already configured authenticated method
+- If no authenticated method is available, stop before backup and report the exact missing prerequisite
 
 ## Failure Handling
 
-If push fails, keep and report:
+If backup fails, keep and report:
 
-- The local file path
-- The commit SHA if commit succeeded
-- The exact git error
+- The local publish path
+- The backup target path
+- The exact API or authentication error
