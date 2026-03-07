@@ -1,19 +1,33 @@
 # Backup Format
 
-Use this file when saving posts into the `blog-backup` repository as a reference backup after local publication.
+Use this file when saving posts into a configurable GitHub repository as a reference backup after local publication.
 
-## Repository
+## Configuration
 
-- Remote: `https://github.com/trickter/blog-backup`
-- Target directory: `posts/`
-- Target branch: `main`
+Resolve these values before backup:
+
+- `backup_repo`: GitHub repository in `owner/repo` form
+- `backup_posts_dir`: target directory inside the repository, default `posts`
+- `backup_branch`: target branch, default `main`
+- `source_name`: frontmatter source value
+- `github_token_env`: env var containing a GitHub token, default `GITHUB_TOKEN`
+
+Example:
+
+```yaml
+backup_repo: trickter/blog-backup
+backup_posts_dir: posts
+backup_branch: main
+source_name: orBlog
+github_token_env: GITHUB_TOKEN
+```
 
 ## Publish Order
 
 Use this order:
 
 1. Publish to the local blog project that serves `http://127.0.0.1:5000`
-2. Back up the same markdown to `blog-backup`
+2. Back up the same markdown to `backup_repo`
 
 GitHub is the backup target, not the primary publish target.
 
@@ -22,7 +36,7 @@ GitHub is the backup target, not the primary publish target.
 Save each post as:
 
 ```text
-posts/YYYY-MM-DD-slug.md
+<backup_posts_dir>/YYYY-MM-DD-slug.md
 ```
 
 Example:
@@ -53,7 +67,7 @@ Guidelines:
 - `date`: current local date in `YYYY-MM-DD`
 - `tags`: choose a small relevant set
 - `status`: default to `published`
-- `source`: default to `orBlog`
+- `source`: default to `source_name`
 
 ## Body
 
@@ -72,19 +86,19 @@ Preferred method: GitHub Contents API.
 Request shape:
 
 ```http
-PUT /repos/trickter/blog-backup/contents/posts/YYYY-MM-DD-slug.md
+PUT /repos/{backup_repo}/contents/{backup_posts_dir}/YYYY-MM-DD-slug.md
 ```
 
 Payload should include:
 
 - `message`: `Add post: slug` or `Update post: slug`
 - `content`: base64-encoded markdown
-- `branch`: `main`
+- `branch`: `backup_branch`
 - `sha`: required only when updating an existing file
 
 Authentication:
 
-- Use a GitHub token or another already configured authenticated method
+- Use the token from `github_token_env` or another already configured authenticated method
 - If no authenticated method is available, stop before backup and report the exact missing prerequisite
 
 ## Failure Handling
