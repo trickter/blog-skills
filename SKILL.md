@@ -243,7 +243,7 @@ Minimum checks:
 
 - Is the central question explicit?
 - Is there a real viewpoint?
-- Is there a visible SRE or systems perspective?
+- Is there a visible engineering or systems perspective?
 - Are there at least 3 concrete analytical points?
 - Are assumptions, limits, or uncertainty stated?
 - Does the draft avoid AI filler and repeated empty transitions?

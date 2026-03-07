@@ -47,7 +47,6 @@ Default audience:
 
 - Technical readers
 - Engineers
-- SREs
 - Technical operators
 - Readers who value mechanisms, tradeoffs, and practical implications
 
@@ -58,7 +57,7 @@ Default voice:
 - Professional
 - Clear
 
-Write like an experienced SRE or technical researcher, not like a self-media operator.
+Write like an experienced engineer, researcher, or technical operator, not like a self-media operator.
 
 The language should feel natural and human. Avoid obvious AI cadence.
 
@@ -241,7 +240,7 @@ After the first draft, self-review and revise until these checks pass:
 
 - Is there a clear central question?
 - Does the article make a real argument instead of restating sources?
-- Does it show an SRE or systems perspective?
+- Does it show a clear engineering or systems perspective?
 - Are there at least 3 specific analytical points?
 - Does it state limits, assumptions, or uncertainty?
 - Does it avoid AI filler, repetition, and empty transitions?
