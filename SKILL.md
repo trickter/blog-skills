@@ -14,6 +14,17 @@ Write Chinese technical blog posts in the style of a configurable local blog, st
 
 Input can be empty, a short topic, or a longer brief.
 
+Before doing runtime discovery, look for a local config file and use it as the primary source of truth.
+
+Preferred files:
+
+- `blog-writer.config.md`
+- `blog-writer.config.yaml`
+- `blog-writer.config.yml`
+- `blog-writer.config.json`
+
+If no project-specific config exists, use [blog-writer.config.example.md](blog-writer.config.example.md) as the schema reference.
+
 Collect or infer these optional settings before publishing or backup:
 
 - `blog_url`: public or local blog URL used for style learning
@@ -82,6 +93,7 @@ Before style learning, publishing, or backup, resolve the runtime configuration.
 
 Rules:
 
+- Read a local config file first if present
 - If the user provided settings in the prompt, use them
 - Otherwise inspect the local environment and likely nearby projects
 - If a value is still unknown, use these defaults where safe:
@@ -91,7 +103,15 @@ Rules:
   - `github_token_env`: `GITHUB_TOKEN`
 - If `backup_repo` or publish destination cannot be determined and they are required for the current step, stop and ask for the missing value
 
+Resolution priority:
+
+1. User prompt overrides
+2. Local config file
+3. Safe defaults
+4. Runtime discovery
+
 Briefly state the resolved configuration before publishing or backup.
+If configuration is complete, skip exploratory codebase inspection.
 
 ### Step 4: Learn the local house style
 
@@ -210,6 +230,8 @@ Configuration-aware behavior:
 
 - If `blog_project_path` is provided, start there
 - If `blog_content_path` is provided, publish there directly
+- If `publish_mode` is provided, use that mode directly
+- If `publish_mode` is `prisma`, use the configured project and model information before doing any schema exploration
 - If neither is provided, inspect the project that appears to serve `blog_url`
 
 If the project path is not obvious:
@@ -303,3 +325,4 @@ After backup, report:
 - Prefer the local blog style over generic internet writing advice when there is a conflict
 - Do not turn the article into pure SEO copy
 - Do not overfit to one sample post; learn recurring patterns across recent posts
+- Prefer a config-driven fast path over runtime discovery whenever a config file exists

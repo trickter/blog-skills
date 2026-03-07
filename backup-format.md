@@ -12,6 +12,8 @@ Resolve these values before backup:
 - `source_name`: frontmatter source value
 - `github_token_env`: env var containing a GitHub token, default `GITHUB_TOKEN`
 
+Read them from the local config file first if present.
+
 Example:
 
 ```yaml
