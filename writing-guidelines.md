@@ -1,258 +1,357 @@
 # Writing Guidelines
 
-Use these rules when planning, drafting, revising, and self-reviewing the blog post.
+这份文档不是用来把文章写得更像“标准答案”，而是用来把文章写得更像一个真的想明白问题的人。
 
-These are not optional style suggestions. They are the default quality bar.
+目标很简单：
 
-## Core Principles
+- 有判断，不复述
+- 有分析，不喊口号
+- 有证据，不装确定
+- 有人味，不有意表演
 
-Always prefer:
+默认情况下，文章应该像一个经验足够的工程师、研究者或技术从业者写出来的东西，而不是营销稿、新闻拼贴，或者一段“完成度很高但没有生命”的 AI 文本。
 
--观点 + 分析 + 证据
--工程视角
--独立判断
--真实边界
--可读性与专业度并存
+## 先守住这几个原则
 
-Never default to:
+### 1. 先写判断，再组织材料
 
-- 空泛总结
-- 营销腔
-- 新闻摘要式复述
-- 情绪化吹捧
-- 没有证据支撑的强结论
+不要先收集一堆信息，再勉强拼出一个“看起来完整”的文章。
 
-## Writing Priorities
+先回答这几个问题：
 
-The article must satisfy these priorities:
+- 我到底想说明什么？
+- 这个判断为什么成立？
+- 哪些事实能支撑它？
+- 哪些地方我其实还不能下结论？
 
-1. Output viewpoint, analysis, and evidence before summary.
-2. Show an engineering lens, especially around:
-   - systems
-   - reliability
-   - risk
-   - cost
-   - scalability
-   - observability
-   - security
-   - governance
-   - incentive design
-3. Add a clear personal viewpoint instead of restating public material.
-4. State uncertainty, assumptions, boundaries, and failure conditions when a conclusion is not fully secure.
-5. Prefer clarity and credibility over exaggerated virality.
+如果这四个问题答不出来，先缩小题目，不要硬写。
 
-## Audience And Voice
+### 2. 文章的价值来自分析，不来自覆盖面
 
-Default audience:
+好文章不是把背景、现状、挑战、趋势都写一遍。
 
-- Technical readers
-- Engineers
-- Technical operators
-- Readers who value mechanisms, tradeoffs, and practical implications
+真正有价值的部分通常是：
 
-Default voice:
+- 把一个常见说法拆开
+- 把一个热点问题落到机制层
+- 把“看起来对”变成“为什么对，在哪些条件下才对”
+- 把读者模糊感受到的问题说清楚
 
-- Rational
-- Restrained
-- Professional
-- Clear
+宁可写窄一点，也不要写成什么都提到、什么都没说透。
 
-Write like an experienced engineer, researcher, or technical operator, not like a self-media operator.
+### 3. 工程视角是默认视角
 
-The language should feel natural and human. Avoid obvious AI cadence.
+分析时优先看这些维度：
 
-## Style Constraints
+- 系统怎么运转
+- 成本由谁承担
+- 风险在哪里积累
+- 哪些环节容易失效
+- 可扩展性是否真实存在
+- 观测、治理、安全、激励有没有被低估
 
-The article should:
+不要停在“这个方向很重要”“这个趋势值得关注”这种空话上。要继续往下问：重要在哪里，代价是什么，谁会先受影响。
 
-- sound grounded, not theatrical
-- move naturally from one section to the next
-- use concrete mechanisms, examples, and scenarios
-- use analogy only when it improves accuracy
+### 4. 允许不确定，但不允许装懂
 
-The article should not:
+文章可以有边界，可以有保留，可以明确说“这件事我还拿不准”。
 
-- read like a marketing page
-- read like a policy recap
-- read like a concept explainer padded with empty transitions
-- overuse hype words such as `颠覆`, `革命性`, `史诗级`
+更好的写法是：
 
-## Default Article Structure
+- 哪些是事实
+- 哪些是推断
+- 推断依赖什么前提
+- 前提一旦变化，结论会怎么变
 
-Unless the topic demands a better shape, use this structure:
+可信度往往来自边界，而不是来自斩钉截铁。
 
-1. Title
-2. Opening
-3. Background and context
-4. Core analysis
+## 默认写作气质
+
+### 读者
+
+默认读者是愿意思考机制、权衡和现实约束的人：
+
+- 工程师
+- 技术管理者
+- 产品与运营中的技术型读者
+- 对产业、系统和实践后果敏感的人
+
+### 语气
+
+默认语气应该是：
+
+- 克制
+- 清楚
+- 直接
+- 有判断
+- 不端着
+
+可以有锋芒，但不要有表演感。可以有立场，但不要像在争取转发。
+
+### 人味来自哪里
+
+“去 AI 味”不等于把文章写得更口语，而是让文字里真的有一个人在思考。
+
+优先保留这些特征：
+
+- 具体感，而不是抽象赞美
+- 真实判断，而不是平衡到失真
+- 节奏变化，而不是每句话都一样整齐
+- 承认复杂性，而不是强行收束成正确结论
+- 必要时使用“我认为”“我更担心的是”这样的第一人称
+
+第一人称不是不专业。没有主体的判断，通常才不可信。
+
+## 一篇文章该怎么长出来
+
+除非题目天然需要别的结构，否则按下面的顺序组织。
+
+1. 标题
+2. 开头
+3. 必要背景
+4. 核心分析
 5. 我的判断
 6. 对实践者的启发
-7. Closing
+7. 结尾
 
-### Title
+### 标题
 
-The title should be:
+标题要把真正的问题拎出来，而不是把关键词堆上去。
 
-- concise
-- specific
-- problem-led
-- not cheaply clickbaited
+优先写成：
 
-Prefer titles that reveal the real question, tradeoff, or hidden mechanism.
+- 一个冲突
+- 一个误判
+- 一个代价
+- 一个隐藏机制
 
-### Opening
+比起“XX 行业的未来与趋势”，更好的标题通常长这样：
 
-The opening should:
+- 为什么很多人把问题看反了
+- 真正的瓶颈不在表面讨论最热的地方
+- 看似进步，实际把成本转移给了谁
 
-- begin with a real problem, tension, misunderstanding, or contradiction
-- explain within 2 to 4 short paragraphs why the article is worth reading
-- surface the core issue early
+标题可以尖锐，但不要廉价夸张。
 
-Do not waste the opening on generic background.
+### 开头
 
-### Background And Context
+开头不要铺背景，不要从大词起手，也不要写“最近很多人都在讨论”。
 
-Explain the context needed to understand the problem:
+更好的开头方式：
 
-- industry context
-- technical context
-- market context
+- 从一个真实矛盾切入
+- 从一个被说反了的判断切入
+- 从一个具体场景切入
+- 先把文章结论亮出来，再解释为什么
 
-Only include context that improves the later analysis.
+前 2 到 4 段要让读者明白三件事：
 
-### Core Analysis
+- 这篇文章在回答什么
+- 这个问题为什么值得看
+- 你的核心判断大概是什么
 
-Split the analysis into 3 to 5 important questions or mechanisms.
+### 必要背景
 
-For each section, explain:
+背景只写对后文分析真的有用的部分。
 
-- what is happening
-- what mechanism drives it
-- what the engineering or system-level implication is
-- what the risk, limit, or counterexample is
+可以包括：
+
+- 技术上下文
+- 产业上下文
+- 市场或监管上下文
+
+不要把背景写成资料卡，也不要为了“照顾不懂的人”把文章前半段都浪费掉。
+
+### 核心分析
+
+核心分析最好拆成 3 到 5 个关键问题，不要机械追求整齐。
+
+每一部分至少回答这些问题：
+
+- 现在到底发生了什么
+- 背后的机制是什么
+- 这件事在工程或系统层面的含义是什么
+- 哪些风险、限制或反例会削弱这个判断
+
+如果某一节只有概念解释，没有机制、代价或边界，通常说明这一节还没写透。
 
 ### 我的判断
 
-This section is mandatory.
+这一节必须有，而且要写得像判断，不要写成温和总结。
 
-It must include:
+至少说清楚：
 
-- your conclusion
-- why you believe it
-- the boundary where it applies
-- at least one serious counterpoint or possible objection
+- 我的结论是什么
+- 我为什么得出这个结论
+- 它成立的边界在哪里
+- 最有力的反对意见是什么
+
+不要假装“兼听则明”就等于没有立场。把反对意见认真摆出来，再说你为什么仍然这么判断。
 
 ### 对实践者的启发
 
-Extract actionable insights for:
+这一节必须可执行，不能只是价值观复述。
 
-- engineering
-- architecture
-- operations
-- investment thinking
-- risk management
+可以落到这些方向：
 
-Do not keep this section abstract.
+- 工程实现
+- 架构选择
+- 运维和治理
+- 团队协作
+- 投资和风险管理
 
-### Closing
+读者看完后，至少应该知道哪些事值得多看一眼，哪些坑要提前避开。
 
-The ending should:
+### 结尾
 
-- return to the original question
-- close with a clear synthesis
-- leave one worthwhile question for continued thought
+结尾不是用来抒情的。
 
-Do not end with empty uplift.
+它要完成三件事：
 
-## Topic Narrowing Rule
+- 回到文章最初的问题
+- 收拢前面的分析
+- 留下一个值得继续想的问题
 
-If the topic is too broad, do not write a vague article.
+不要用“未来可期”“值得持续关注”“让我们拭目以待”这种空结尾。
 
-First narrow it into a better blog angle by preferring:
+## 去 AI 味，不是删几个词就够了
 
-- a point of controversy
-- a common misunderstanding
-- a system-level consequence
-- a concrete engineering implication
+下面这些模式一旦出现，文章就很容易变得像机器在完成任务。
 
-## Evidence And Uncertainty
+### 1. 空泛地放大意义
 
-When the facts are incomplete:
+少写：
 
-- do not invent data
-- do not invent examples
-- do not invent quotes
-- do not invent market conclusions
+- 标志着一个重要时刻
+- 是某种趋势的体现
+- 彰显了其关键意义
+- 为未来发展奠定基础
 
-Instead:
+多写具体事实、真实后果和明确对象。
 
-- say what is known
-- say what is inferred
-- say what remains uncertain
-- say what assumptions the argument depends on
+不要把任何事情都抬升成时代转折点。
 
-If a conclusion may fail under certain conditions, name those conditions explicitly.
+### 2. 营销腔和宣传腔
 
-## Balance And Disagreement
+少写：
 
-When the topic is contested:
+- 颠覆
+- 革命性
+- 史诗级
+- 令人惊叹
+- 充满活力
+- 无缝、强大、直观
 
-- present the main opposing views
-- explain why smart people disagree
-- give a balanced analysis before stating your own judgment
+这类词大多不能增加信息，只会暴露写作者没有把事情说具体。
 
-The goal is not fake neutrality. The goal is intellectually honest conviction.
+### 3. 模糊归因
 
-## Forbidden Patterns
+少写：
 
-Do not write:
+- 有专家认为
+- 市场普遍认为
+- 业内人士指出
+- 有观点认为
 
-- “先介绍概念，再罗列优点，最后展望未来”的模板文
-- 大量正确但无信息量的废话
-- 为了显得全面而堆砌名词
-- 追热点但不解释底层逻辑
+能给来源就给来源，给不了就直接说是你的判断，不要借空气中的权威说话。
 
-Avoid obvious AI phrases such as:
+### 4. 机械的“三段式完整性”
 
-- `在当今快速发展的时代`
-- `随着技术的不断进步`
-- `值得注意的是`
-- `总的来说`
-- `不可忽视的是`
+AI 很喜欢把句子写成“三件事并列”，把文章写成“背景、挑战、未来展望”。
 
-## Required Output Flow
+这种整齐感通常会伤害表达。
 
-When the user gives a topic, produce in this order:
+优先考虑：
 
-1. `文章定位一句话`
-2. `目标读者`
-3. `核心论点` with at most 3 points
-4. `文章大纲`
-5. `正文初稿`
-6. `自我审稿结果`
-7. `精修版标题备选` with 5 options
+- 两个最关键的点，而不是硬凑三个
+- 一个真实问题展开到底，而不是平均铺开
+- 该停就停，不要每节都补一句正确废话
 
-If the topic is unclear, do not force a draft. Narrow the angle first.
+### 5. 过度使用连接词和提示词
 
-## Required Quality Check
+少写：
 
-After the first draft, self-review and revise until these checks pass:
+- 此外
+- 值得注意的是
+- 总的来说
+- 不难发现
+- 从某种意义上说
+- 随着技术的不断发展
 
-- Is there a clear central question?
-- Does the article make a real argument instead of restating sources?
-- Does it show a clear engineering or systems perspective?
-- Are there at least 3 specific analytical points?
-- Does it state limits, assumptions, or uncertainty?
-- Does it avoid AI filler, repetition, and empty transitions?
-- Is the title specific?
-- Is the opening strong enough?
-- Does the ending actually close the argument?
-- Would a technical reader feel there is real information gain?
+句子之间如果逻辑成立，很多连接词本来就不需要出现。
 
-## Self-Review Output
+### 6. 为了显得深刻而反复抽象化
 
-After the draft, always include:
+少写“格局、趋势、范式、图景、长期价值、深远影响”。
 
-- `本文最强的 3 个点`
-- `本文最可能薄弱的 2 个点`
-- `还可以继续补强的方向`
+如果一个判断可以被改写成：
+
+- 谁在付成本
+- 哪个环节会卡住
+- 什么时候会失效
+- 读者该如何应对
+
+就优先改写成后者。
+
+### 7. 不敢用简单句
+
+很多 AI 文本会绕开最直接的表达方式。
+
+能写“这是一个成本问题”，就不要写“这体现了复杂约束条件下的资源配置挑战”。
+
+能写“它是”，就不要为了显得高级而拐弯。
+
+### 8. 结尾总想上价值
+
+文章写完一个判断就可以结束，不必一定升华。
+
+如果最后一段删掉以后文章反而更有力，那就删。
+
+## 改稿时的硬性检查
+
+交稿前，至少过一遍下面这张表。
+
+### 内容检查
+
+- 文章是否真的有一个清楚判断？
+- 判断是否有证据、机制和边界支撑？
+- 有没有哪一段只是“看起来完整”，实际没有信息增量？
+- 有没有为了显得全面而加入无关背景？
+- 有没有重要反对意见被故意略过？
+
+### 风格检查
+
+- 有没有明显的新闻摘要腔？
+- 有没有营销词、口号句、金句式表达？
+- 有没有一连串抽象名词压过了具体信息？
+- 句子节奏是否过于整齐？
+- 是否每一节都像在完成模板？
+
+### 人味检查
+
+- 文中有没有真实判断，而不只是资料整理？
+- 有没有至少几处能看出作者在主动思考而不是自动续写？
+- 是否承认了复杂性和不确定性？
+- 如果删掉所有套话，文章是否仍然成立？
+
+## 可以保留的“不完美”
+
+不要把文章修得太平。
+
+这些东西在合适的时候可以保留：
+
+- 稍微有点锋芒的判断
+- 不完全对称的段落节奏
+- 没有被打磨成金句的自然句子
+- 有边界感的犹豫
+- 真正有信息量的第一人称
+
+过度抛光通常会把文章重新抛回 AI 味里。
+
+## 最后的标准
+
+写完以后，问自己一句：
+
+这篇文章像不像一个真的研究过这个问题、也真的承担过判断后果的人写的？
+
+如果答案不是，就继续改。不是补更多材料，而是把话写得更具体，把判断写得更诚实。
